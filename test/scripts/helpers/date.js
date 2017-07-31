@@ -1,5 +1,7 @@
+'use strict';
+
 var moment = require('moment-timezone');
-var should = require('chai').should(); // eslint-disable-line
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var sinon = require('sinon');
 
 describe('date', () => {

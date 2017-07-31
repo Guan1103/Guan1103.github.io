@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var pathFn = require('path');
 var fs = require('hexo-fs');
 var Promise = require('bluebird');
@@ -7,8 +9,7 @@ var sinon = require('sinon');
 describe('generate', () => {
   var Hexo = require('../../../lib/hexo');
   var generateConsole = require('../../../lib/plugins/console/generate');
-  var hexo;
-  var generate;
+  var hexo, generate;
 
   beforeEach(() => {
     hexo = new Hexo(pathFn.join(__dirname, 'generate_test'), {silent: true});
@@ -57,9 +58,9 @@ describe('generate', () => {
 
     // Add some source files
     return fs.writeFile(src, content).then(() => // First generation
-    generate({})).then(() => // Delete generated files
-    fs.unlink(dest)).then(() => // Second generation
-    generate({})).then(() => fs.readFile(dest)).then(result => {
+      generate({})).then(() => // Delete generated files
+      fs.unlink(dest)).then(() => // Second generation
+      generate({})).then(() => fs.readFile(dest)).then(result => {
       result.should.eql(content);
 
       // Remove source files and generated files
@@ -78,10 +79,10 @@ describe('generate', () => {
 
     // Add some source files
     return fs.writeFile(src, content).then(() => // First generation
-    generate({})).then(() => // Change the generated file
-    fs.writeFile(dest, newContent)).then(() => // Second generation
-    generate({})).then(() => // Read the generated file
-    fs.readFile(dest)).then(result => {
+      generate({})).then(() => // Change the generated file
+      fs.writeFile(dest, newContent)).then(() => // Second generation
+      generate({})).then(() => // Read the generated file
+      fs.readFile(dest)).then(result => {
       // Make sure the generated file didn't changed
       result.should.eql(newContent);
 
@@ -100,11 +101,11 @@ describe('generate', () => {
     var mtime;
 
     return fs.writeFile(src, content).then(() => // First generation
-    generate({})).then(() => // Read file status
-    fs.stat(dest)).then(stats => {
+      generate({})).then(() => // Read file status
+      fs.stat(dest)).then(stats => {
       mtime = stats.mtime.getTime();
     }).delay(1000).then(() => // Force regenerate
-    generate({force: true})).then(() => fs.stat(dest)).then(stats => {
+      generate({force: true})).then(() => fs.stat(dest)).then(stats => {
       stats.mtime.getTime().should.be.above(mtime);
 
       // Remove source files and generated files
@@ -121,7 +122,7 @@ describe('generate', () => {
     var content = 'test';
 
     return testGenerate({watch: true}).then(() => // Update the file
-    fs.writeFile(src, content)).delay(300).then(() => fs.readFile(dest)).then(result => {
+      fs.writeFile(src, content)).delay(300).then(() => fs.readFile(dest)).then(result => {
       // Check the updated file
       result.should.eql(content);
     }).finally(() => {
@@ -157,15 +158,15 @@ describe('generate', () => {
     fs.writeFile(pathFn.join(hexo.theme_dir, 'source', 'b.txt'), 'b'),
     fs.writeFile(pathFn.join(hexo.theme_dir, 'source', 'c.swig'), 'c')
   ]).then(() => generate({})).then(() => // Update source file
-  Promise.all([
-    fs.writeFile(pathFn.join(hexo.theme_dir, 'source', 'b.txt'), 'bb'),
-    fs.writeFile(pathFn.join(hexo.theme_dir, 'source', 'c.swig'), 'cc')
-  ])).then(() => // Generate again
-  generate({})).then(() => // Read the updated source file
-  Promise.all([
-    fs.readFile(pathFn.join(hexo.public_dir, 'b.txt')),
-    fs.readFile(pathFn.join(hexo.public_dir, 'c.html'))
-  ])).then(result => {
+    Promise.all([
+      fs.writeFile(pathFn.join(hexo.theme_dir, 'source', 'b.txt'), 'bb'),
+      fs.writeFile(pathFn.join(hexo.theme_dir, 'source', 'c.swig'), 'cc')
+    ])).then(() => // Generate again
+    generate({})).then(() => // Read the updated source file
+    Promise.all([
+      fs.readFile(pathFn.join(hexo.public_dir, 'b.txt')),
+      fs.readFile(pathFn.join(hexo.public_dir, 'c.html'))
+    ])).then(result => {
     result[0].should.eql('bb');
     result[1].should.eql('cc');
   }));

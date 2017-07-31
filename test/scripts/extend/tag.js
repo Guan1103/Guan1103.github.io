@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var sinon = require('sinon');
 var Promise = require('bluebird');
 
@@ -66,12 +68,12 @@ describe('Tag', () => {
     var str = [
       '{% test %}',
       '123456',
-      '  {% raw %}',
-      '  raw',
-      '  {% endraw %}',
-      '  {% test %}',
-      '  test',
-      '  {% endtest %}',
+      '	{% raw %}',
+      '	raw',
+      '	{% endraw %}',
+      '	{% test %}',
+      '	test',
+      '	{% endtest %}',
       '789012',
       '{% endtest %}'
     ].join('\n');
@@ -92,9 +94,9 @@ describe('Tag', () => {
     var str = [
       '{% test %}',
       '123456',
-      '  {% async %}',
-      '  async',
-      '  {% endasync %}',
+      '	{% async %}',
+      '	async',
+      '	{% endasync %}',
       '789012',
       '{% endtest %}'
     ].join('\n');
@@ -111,7 +113,7 @@ describe('Tag', () => {
 
     var str = [
       '{% test %}',
-      '  test content',
+      '	test content',
       '{% endtest %}'
     ].join('\n');
 

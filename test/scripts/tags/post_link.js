@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 
 describe('post_link', () => {
   var Hexo = require('../../../lib/hexo');

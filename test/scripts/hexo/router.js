@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var Promise = require('bluebird');
 var Readable = require('stream').Readable;
 var pathFn = require('path');
@@ -162,7 +164,6 @@ describe('Router', () => {
 
   it('get() - no data', () => {
     router.set('test', () => {
-      return;
     });
 
     return checkStream(router.get('test'), '');

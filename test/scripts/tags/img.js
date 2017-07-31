@@ -1,6 +1,8 @@
+'use strict';
+
 var pathFn = require('path');
 var cheerio = require('cheerio');
-var should = require('chai').should(); // eslint-disable-line
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 
 describe('img', () => {
   var Hexo = require('../../../lib/hexo');

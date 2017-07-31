@@ -1,5 +1,7 @@
+'use strict';
+
 var crypto = require('crypto');
-var should = require('chai').should(); // eslint-disable-line
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 
 describe('gravatar', () => {
   var gravatar = require('../../../lib/plugins/helper/gravatar');

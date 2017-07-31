@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 
 describe('fragment_cache', () => {
   var fragment_cache = require('../../../lib/plugins/helper/fragment_cache')();

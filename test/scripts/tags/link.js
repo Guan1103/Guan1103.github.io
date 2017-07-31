@@ -1,5 +1,7 @@
+'use strict';
+
 var cheerio = require('cheerio');
-var should = require('chai').should(); // eslint-disable-line
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 
 describe('link', () => {
   var link = require('../../../lib/plugins/tag/link');

@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var util = require('hexo-util');
 var _ = require('lodash');
 var defaultConfig = require('../../../lib/hexo/default_config');

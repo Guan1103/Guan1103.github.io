@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var sinon = require('sinon');
 var pathFn = require('path');
 var Promise = require('bluebird');
@@ -214,8 +216,7 @@ describe('Post', () => {
   });
 
   it('setCategories() - shared category should be same', () => {
-    var postIdA;
-    var postIdB;
+    var postIdA, postIdB;
 
     return Post.insert({
       source: 'foo.md',
@@ -243,8 +244,7 @@ describe('Post', () => {
   });
 
   it('setCategories() - category not shared should be different', () => {
-    var postIdA;
-    var postIdB;
+    var postIdA, postIdB;
 
     return Post.insert({
       source: 'foo.md',

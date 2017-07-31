@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var sinon = require('sinon');
 var Promise = require('bluebird');
 
@@ -192,7 +194,7 @@ describe('Tag', () => {
       {source: 'bar.md', slug: 'bar'},
       {source: 'baz.md', slug: 'baz'}
     ]).then(posts => // One item a time
-    Promise.map(posts, post => post.setTags(['foo']).thenReturn(post), {concurrency: 1})).then(posts => {
+      Promise.map(posts, post => post.setTags(['foo']).thenReturn(post), {concurrency: 1})).then(posts => {
       tag = Tag.findOne({name: 'foo'});
       return Tag.removeById(tag._id).thenReturn(posts);
     }).then(posts => {

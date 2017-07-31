@@ -1,5 +1,7 @@
+'use strict';
+
 var pathFn = require('path');
-var should = require('chai').should(); // eslint-disable-line
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var fs = require('hexo-fs');
 var yml = require('js-yaml');
 
@@ -101,12 +103,10 @@ describe('config flag handling', () => {
     fs.writeFileSync(base + 'test2.yml', testYaml2);
     fs.writeFileSync(base + 'test1.json', testJson1);
     fs.writeFileSync(base + 'test2.json', testJson2);
-    return;
   });
 
   afterEach(() => {
     hexo.log.reader = [];
-    return;
   });
 
   after(() => fs.rmdir(hexo.base_dir));
@@ -119,10 +119,10 @@ describe('config flag handling', () => {
 
   it('1 file', () => {
     mcp(base, 'test1.yml').should.eql(
-            pathFn.resolve(base + 'test1.yml'));
+      pathFn.resolve(base + 'test1.yml'));
 
     mcp(base, 'test1.json').should.eql(
-            pathFn.resolve(base + 'test1.json'));
+      pathFn.resolve(base + 'test1.json'));
   });
 
   it('1 not found file warning', () => {
@@ -130,8 +130,7 @@ describe('config flag handling', () => {
 
     mcp(base, notFile).should.eql(pathFn.join(base, '_config.yml'));
     hexo.log.reader[0].type.should.eql('warning');
-    hexo.log.reader[0].msg.should.eql('Config file ' + notFile +
-                          ' not found, using default.');
+    hexo.log.reader[0].msg.should.eql('Config file ' + notFile + ' not found, using default.');
   });
 
   it('combined config output', () => {
@@ -153,8 +152,7 @@ describe('config flag handling', () => {
 
     mcp(base, 'notafile.yml,alsonotafile.json').should.not.eql(combinedPath);
     hexo.log.reader[7].type.should.eql('error');
-    hexo.log.reader[7].msg.should.eql('No config files found.' +
-                                     ' Using _config.yml.');
+    hexo.log.reader[7].msg.should.eql('No config files found. Using _config.yml.');
   });
 
   it('2 YAML overwrite', () => {
@@ -190,7 +188,7 @@ describe('config flag handling', () => {
     config.type.should.eql('elephant');
   });
 
-  it('JSON \& YAML overwrite', () => {
+  it('JSON & YAML overwrite', () => {
     var config = fs.readFileSync(mcp(base, 'test1.yml,test1.json'));
     config = yml.safeLoad(config);
 

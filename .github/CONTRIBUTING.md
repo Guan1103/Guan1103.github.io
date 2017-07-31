@@ -2,14 +2,12 @@
 
 ## Style Guide
 
-We use [JSCS] and [ESLint] to maintain the code style. You can install linter plugins on your editor or check the status with the following commands:
+We use [ESLint] to maintain the code style. You can install linter plugins on your editor or check the status with the following commands:
 
 ``` bash
-$ npm run jscs
 $ npm run eslint
 
 # You can append `--fix` option to these commands to fix the code style automatically
-$ npm run jscs -- --fix
 $ npm run eslint -- --fix
 ```
 
@@ -23,20 +21,20 @@ $ npm run eslint -- --fix
     $ cd hexo
     $ npm install
     ```
-    
+
 3. Create a feature branch.
 
     ``` bash
     $ git checkout -b new_feature
     ```
-    
+
 4. Start hacking.
 5. Push the branch.
 
     ``` bash
     $ git push origin new_feature
     ```
-    
+
 6. Create a pull request and describe the change.
 
 ## Testing
@@ -49,7 +47,7 @@ $ npm test
 
 ## Updating Documentation
 
-The Hexo documentation is open source and you can find the source code on [hexojs/site]. 
+The Hexo documentation is open source and you can find the source code on [hexojs/site].
 
 ### Workflow
 
@@ -61,13 +59,13 @@ The Hexo documentation is open source and you can find the source code on [hexoj
     $ cd site
     $ npm install
     ```
-    
+
 3. Start editing the documentation. You can start the server for live previewing.
 
     ``` bash
     $ hexo server
     ```
-    
+
 4. Push the branch.
 5. Create a pull request and describe the change.
 
@@ -83,8 +81,7 @@ The Hexo documentation is open source and you can find the source code on [hexoj
 When you encounter some problems when using Hexo, you can find the solutions in [Troubleshooting](http://hexo.io/docs/troubleshooting.html) or ask me on [GitHub](https://github.com/hexojs/hexo/issues) or [Google Group](https://groups.google.com/group/hexo). If you can't find the answer, please report it on GitHub.
 
 1. Represent the problem in [debug mode](http://hexo.io/docs/commands.html#Debug_mode).
-2. Run `hexo version` and check the version info.    
+2. Run `hexo version` and check the version info.
 3. Post both debug message and version info on GitHub.
 
-[JSCS]: http://jscs.info/
 [ESLint]: http://eslint.org/

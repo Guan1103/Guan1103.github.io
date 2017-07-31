@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var fs = require('hexo-fs');
 var moment = require('moment');
 var pathFn = require('path');
@@ -46,7 +48,7 @@ describe('publish', () => {
     var date = moment(now);
 
     var content = [
-        '---',
+      '---',
       'title: Hello World',
       'date: ' + date.format('YYYY-MM-DD HH:mm:ss'),
       'tags:',
@@ -71,7 +73,7 @@ describe('publish', () => {
     var date = moment(now);
 
     var content = [
-        '---',
+      '---',
       'layout: photo',
       'title: Hello World',
       'date: ' + date.format('YYYY-MM-DD HH:mm:ss'),

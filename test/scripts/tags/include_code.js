@@ -1,5 +1,7 @@
+'use strict';
+
 var pathFn = require('path');
-var should = require('chai').should(); // eslint-disable-line
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var fs = require('hexo-fs');
 var highlight = require('hexo-util').highlight;
 var Promise = require('bluebird');

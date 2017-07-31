@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var pathFn = require('path');
 var fs = require('hexo-fs');
 var Promise = require('bluebird');
@@ -95,8 +97,7 @@ describe('Box', () => {
       fs.writeFile(pathFn.join(box.base, 'b', 'c.js'), 'c')
     ]).then(() => box.process()).then(() => {
       var keys = Object.keys(data);
-      var key;
-      var item;
+      var key, item;
 
       for (var i = 0, len = keys.length; i < len; i++) {
         key = keys[i];
@@ -343,7 +344,7 @@ describe('Box', () => {
       lastTwoCalls.forEach(args => {
         var file = args[0];
 
-        switch (file.type){
+        switch (file.type) {
           case 'create':
             file.source.should.eql(newSrc);
             file.path.should.eql(newPath);
@@ -382,7 +383,7 @@ describe('Box', () => {
       lastTwoCalls.forEach(args => {
         var file = args[0];
 
-        switch (file.type){
+        switch (file.type) {
           case 'create':
             file.source.should.eql(newSrc);
             file.path.should.eql(newPath);

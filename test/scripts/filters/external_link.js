@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 
 describe('External link', () => {
   var Hexo = require('../../../lib/hexo');
@@ -9,9 +11,9 @@ describe('External link', () => {
   hexo.config.url = 'http://maji.moe';
 
   it('disabled', () => {
-    var content = 'foo' +
-      '<a href="http://hexo.io/">Hexo</a>' +
-      'bar';
+    var content = 'foo'
+      + '<a href="http://hexo.io/">Hexo</a>'
+      + 'bar';
 
     var data = {content};
     hexo.config.external_link = false;

@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var util = require('hexo-util');
 var cheerio = require('cheerio');
 
@@ -31,12 +33,12 @@ describe('code', () => {
 
   it('non standard indent', () => {
     var nonStandardIndent = [
-        '  ',
-        '  return x;',
-        '}',
-        '',
-        fixture,
-        '  '
+      '  ',
+      '  return x;',
+      '}',
+      '',
+      fixture,
+      '  '
     ].join('/n');
     var result = code('', nonStandardIndent);
     result.should.eql(highlight(nonStandardIndent));

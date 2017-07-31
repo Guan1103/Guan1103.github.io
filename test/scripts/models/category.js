@@ -1,4 +1,6 @@
-var should = require('chai').should(); // eslint-disable-line
+'use strict';
+
+var should = require('chai').should(); // eslint-disable-line no-unused-vars
 var sinon = require('sinon');
 var Promise = require('bluebird');
 
@@ -217,11 +219,11 @@ describe('Category', () => {
       {source: 'bar.md', slug: 'bar'},
       {source: 'baz.md', slug: 'baz'}
     ]).then(posts => // One item a time
-    Promise.map(
-      posts,
-      post => post.setCategories(['foo']).thenReturn(post),
-      {concurrency: 1}
-    )).then(posts => {
+      Promise.map(
+        posts,
+        post => post.setCategories(['foo']).thenReturn(post),
+        {concurrency: 1}
+      )).then(posts => {
       cat = Category.findOne({name: 'foo'});
       return Category.removeById(cat._id).thenReturn(posts);
     }).then(posts => {
